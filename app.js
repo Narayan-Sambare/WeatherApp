@@ -11,7 +11,7 @@ cityInput.addEventListener('input', () => {
   suggestions.innerHTML = '';
 
   if (!input) {
-    suggestions.style.display = 'none';
+    suggestions.style.display = 'enter correct city name';
     return;
   }
 
@@ -24,29 +24,29 @@ cityInput.addEventListener('input', () => {
         return;
       }
 
-      data.forEach(city => {
-        const li = document.createElement('li');
+      // data.forEach(city => {
+      //   const li = document.createElement('li');
         
-        // Add country flag
-        const flag = document.createElement('img');
-        flag.src = `https://countryflagsapi.com/png/${city.country}`;
-        flag.alt = city.country;
-        flag.style.width = '20px';
-        flag.style.height = '15px';
-        flag.style.marginRight = '10px';
+      //   // Add country flag
+      //   const flag = document.createElement('img');
+      //   flag.src = `https://countryflagsapi.com/png/${city.country}`;
+      //   flag.alt = city.country;
+      //   flag.style.width = '20px';
+      //   flag.style.height = '15px';
+      //   flag.style.marginRight = '10px';
 
-        li.appendChild(flag);
-        li.appendChild(document.createTextNode(`${city.name}, ${city.country}`));
+      //   li.appendChild(flag);
+      //   li.appendChild(document.createTextNode(`${city.name}, ${city.country}`));
 
-        li.addEventListener('click', () => {
-          cityInput.value = `${city.name}, ${city.country}`;
-          suggestions.innerHTML = '';
-          suggestions.style.display = 'none';
-          getWeather(city.name);
-        });
+      //   li.addEventListener('click', () => {
+      //     cityInput.value = `${city.name}, ${city.country}`;
+      //     suggestions.innerHTML = '';
+      //     suggestions.style.display = 'none';
+      //     getWeather(city.name);
+      //   });
 
-        suggestions.appendChild(li);
-      });
+      //   suggestions.appendChild(li);
+      // });
 
       suggestions.style.display = 'block';
     })
